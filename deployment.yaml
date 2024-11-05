@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+      - name: sample-container
+        image: saurabhchavan216/$JOB_NAME:$BUILD_ID
+        ports:
+        - containerPort: 8080
